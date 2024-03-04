@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/index.css">
+        <base href="/">
+    </head>
+    <body>
+        <header class="namawebsite">
+            <div class="tempatheader1"><h1>MyMangaList</h1></div>
+            <div class="tempatheader2">
+                <div class="login"><a href="./user" class="button1" onclick="cfunc1">Login</a></div>
+                <div class="signup"><a href="./signup" class="button1" onclick="cfunc1">Signup</a></div>
+            </div>
+        </header>
+        <form action="/" method="post" class="form1">
+        <div class="kotak1">
+            <h3 class="insert1">MyMangaList</h3>
+            <input type="text" placeholder="title" class="insert2" name="title">
+            <input type="text" placeholder="author" class="insert3" name="author">
+            <input type="text" placeholder="chapters" class="insert4" name="chapter">
+            <input type="url" placeholder="link" class="insert5" name="link"><br>
+            <button type="submit"  class="insert6" onclick="toggledisplay()">Insert</button>
+<script>
+function toggledisplay(){
+const kotak = document.querySelector(".kotak1");
+if(kotak.style.display == "none") {kotak.style.display = "block";}
+else {kotak.style.display = "none";}
+}
+
+</script>
+        </div>
+        </form>
+        <main>
+            <div class="table">
+                <div class="row">
+                    <div class="box0">sort by :</div>
+                    <div class="box1" id="sortAZ">A-Z</div>
+                    <div class="box1" id="sortMostToLeast">most chapters</div>
+                    <div class="box1" id="sortLeastToMost">least chapters</div>
+                    <div class="box1" id="sortFirstToLast">first added-last added</div>
+                </div>
+                <button class="tambahin" onclick="toggledisplay()">Insert +</button>
+            </div>
+            <div>
+            <table class="table1">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Chapters</th>
+                        <th scope="col">Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each manga}}
+                <tr class="row1">
+                    <td class="id cg">{{this.id}}</td>
+                    <td class="title cg">{{this.title}}</td>
+                    <td class="author cg">{{this.author}}</td>
+                    <td class="chapters cg">{{this.chapter}}</td>
+                    <td class="link cg">{{this.link}}</td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            </div>
+        </main>
+        <script></script>
+  </body>
+</html>
